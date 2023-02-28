@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background-color: #F5F5F5;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+ 
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+:root{
+  --sidebar-bgc-color: #ffff;
+  --navbar-bgc-color: #00cec9;
+  --navbar-link-color: #3131319e;
+  --navbar-button-hover-background-color: #ffff;
+  --header-bgc-color: #fff;
+  --header-border-title:#F79F1F;
+  --header-color-title:#4443439e;
+  --main-bgc-color: #F5F5F5;
+  --oneCardPage-divPrice-bgc: #FAFAFA;
+  --footer-bgc-color: #00ACC1;
+  --footer-text-color: #001E3C;
+  --Home-bgc-color:  #F5F5F5;
+  --Home-border-title:  #001E3C;
+  --MentorsCard-H5-color: #00a9a6;
+  --MentorsCard-border:#cfcfcf;
+  --MentorsCard-title:#172E59;
+}
+
+
+.flex_center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 7% auto;
+}
+
+
+.sign-color{
+  color: #3498db;
+  cursor: pointer;
+
+}
+
+.sign-color:hover{
+  color: #2980b9;
+}
+
+.form-column{
+  height:auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-evenly;
+}

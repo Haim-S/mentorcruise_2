@@ -1,0 +1,62 @@
+
+
+nav{
+    width: 100vw;
+    height: 100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    background-color: var( --navbar-bgc-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+ 
+}
+
+header{
+    /* max-width: 1280px; */
+    padding: 0 5px;
+    width: 100vw;
+    height:36%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    color: var( --header-color-title);
+    /* border-bottom-right-radius: 250px 100px; */
+    box-shadow: 0px 5px 5px rgba(83, 83, 83, 0.388);
+    background-color: var(--header-bgc-color);
+    
+
+}
+
+
+main{
+    max-width: 1280px;
+    margin: 15px auto;
+    padding: 0 2rem;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: var(--main-bgc-color);
+    padding-bottom: 50px;
+    
+    /* background-image: url('https://img.freepik.com/free-vector/modern-banner-with-abstract-low-poly-design_1048-14340.jpg?w=1060&t=st=1672155550~exp=1672156150~hmac=bb49e33e6957510dcf22721dab46c16a4b3cefcc1eb0f7df929e82b4ea602e33');
+    background-repeat: no-repeat;
+    background-size: cover;
+     */
+ 
+}
+
+
+footer{
+    position: absolute;
+    width: 100vw;
+    height: 110px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    background-color: var(  --footer-bgc-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+   
+}
