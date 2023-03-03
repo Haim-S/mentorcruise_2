@@ -3,13 +3,13 @@ import styled from "@emotion/styled";
 
 
 export const DivImage = styled.div`
-// display:flex;
+display:flex;
 align-items: center;
 justify-content: center;
 height: 100vh;
 width: 30vw;
 background: #2196f3;
-display: ${(props) => props.isLogin ? "flex" : "none"};
+// display: ${(props) => props.isLogin ? "flex" : "none"};
 
 @media screen and (max-width: 1000px){
     display: none;

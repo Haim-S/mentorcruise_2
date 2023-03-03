@@ -26,7 +26,7 @@ const SignTextField = ({label, fialdName, register, errors, type})=> {
     return(
         <TextField
         label={label}
-        error={errors[fialdName]}
+        error={Boolean(errors[fialdName])}
         helperText={errors[fialdName] ? errors[fialdName]?.message : " "}
         {...register(fialdName, {required: true})}
         type={label === "Password" || label === "Confirm Password" ? (typeTextState.typeText ? "text": "password" ) : type}
@@ -59,19 +59,27 @@ register,
 errors,
 handleChange,
 value,
+labelId,
+id,
 
 }) => {
 
 
     return(
         <FormControl sx={{ m: 0, minWidth: 222 }} size="small">
-        <InputLabel>
+        <InputLabel error={Boolean(errors[fieldName])} id="role-select">
         {label}
         </InputLabel>
         <Select
+        error={Boolean(errors[fieldName])}
+        value={value}
         {...register(fieldName)}
+        // helpertext={errors[fieldName] ? errors[fieldName]?.message : " "}
         label={label}
         onChange={handleChange}
+        labelId={labelId}
+        id={id}
+      
         >
             <MenuItem value="">
                 <em>None</em>
@@ -79,8 +87,8 @@ value,
             <MenuItem value={"ENTREPRENEUR"}> ENTREPRENEUR</MenuItem>
             <MenuItem value={"CONSULTANT"}>CONSULTANT</MenuItem>
         </Select>
-        <FormHelperText>
-
+        <FormHelperText errors={Boolean(errors[fieldName])}>
+         {errors[fieldName] ? errors[fieldName]?.message : " "}
         </FormHelperText>
         </FormControl>
     )

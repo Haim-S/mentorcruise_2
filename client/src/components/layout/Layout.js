@@ -12,14 +12,14 @@ const Layout = () => {
 
   return (
     <>
-    {!location.pathname === "/login" && <Navbar/>}
-    {!location.pathname === "/login" &&  <Header/>}
-    {!location.pathname !== "/login" ? <Outlet/> :
+    {location.pathname == "/login" ?  "" : <Navbar/>}
+    {location.pathname == "/login" ? "" :  <Header/>}
+    {location.pathname == "/login" ? <Outlet/> :
     <main>
       <Outlet/>
     </main>
     }
-    {!location.pathname === "/login" &&  <Footer/>}
+    {location.pathname == "/login" ? "" :  <Footer/>}
     </>
   )
 }
