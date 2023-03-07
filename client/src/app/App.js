@@ -1,3 +1,4 @@
+import React from "react";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Layout from "../components/layout/Layout";
 import { mainRoutes, footerRoutes } from "../pages/import";
@@ -10,6 +11,7 @@ function App({children}) {
       <Route path="/" element={<Layout/>}>
         {mainRoutes.map((route, index) => {
           return(
+            
             <Route
             path={route.path}
             element={
@@ -23,6 +25,7 @@ function App({children}) {
             }
             key={index}
             />
+           
           );
         })}
         {footerRoutes.map((route, index)=>{

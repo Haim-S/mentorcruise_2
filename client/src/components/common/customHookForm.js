@@ -4,7 +4,7 @@ import Visibility from "@mui/icons-material/Visibility";
 import IconButton from "@mui/material/IconButton";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
-import {InputLabel, Select, MenuItem, FormHelperText, FormControl } from "@mui/material";
+import {InputLabel, Select, MenuItem, FormHelperText, FormControl, Typography, Divider } from "@mui/material";
 
 
 
@@ -17,18 +17,21 @@ function passwordReducer(state, action) {
     }
   }
 
-const SignTextField = ({label, fialdName, register, errors, type})=> {
+const SignTextField = ({label, fieldName, register, errors, type})=> {
 
     const [typeTextState, dispatch] = useReducer(passwordReducer, {
         typeText: false,
       });
 
+      
+
     return(
+      
         <TextField
         label={label}
-        error={Boolean(errors[fialdName])}
-        helperText={errors[fialdName] ? errors[fialdName]?.message : " "}
-        {...register(fialdName, {required: true})}
+        error={Boolean(errors[fieldName])}
+        helperText={errors[fieldName] ? errors[fieldName]?.message : " "}
+        {...register(fieldName, {required: true})}
         type={label === "Password" || label === "Confirm Password" ? (typeTextState.typeText ? "text": "password" ) : type}
         InputProps={{
             endAdornment:
@@ -49,6 +52,7 @@ const SignTextField = ({label, fialdName, register, errors, type})=> {
               ) : null,
           }}
         />
+      
     );
 }
 
@@ -64,6 +68,7 @@ id,
 
 }) => {
 
+  
 
     return(
         <FormControl sx={{ m: 0, minWidth: 222 }} size="small">
@@ -79,7 +84,6 @@ id,
         onChange={handleChange}
         labelId={labelId}
         id={id}
-      
         >
             <MenuItem value="">
                 <em>None</em>
@@ -87,11 +91,40 @@ id,
             <MenuItem value={"ENTREPRENEUR"}> ENTREPRENEUR</MenuItem>
             <MenuItem value={"CONSULTANT"}>CONSULTANT</MenuItem>
         </Select>
-        <FormHelperText errors={Boolean(errors[fieldName])}>
+        <FormHelperText error={Boolean(errors[fieldName])}>
          {errors[fieldName] ? errors[fieldName]?.message : " "}
         </FormHelperText>
         </FormControl>
     )
+}
+
+export const RegisterTypographyTitels =  ({mainTitle, title, subTitle}) =>{
+return(
+<>
+<Typography 
+     variant="h4"
+     noWrap
+     component="div"
+     >{mainTitle}</Typography>
+      <Typography
+      variant="h6"
+      noWrap
+      component="div"
+      sx={{ display: { xs: "none", sm: "none", md: "block" } }}
+      >
+      {title}
+      </Typography>
+      <Typography
+                variant="subtitle2"
+                noWrap
+                component="div"
+                sx={{ display: { xs: "none", sm: "none", md: "block" } }}
+              >
+      {subTitle}
+              </Typography>
+              <Divider/>
+              </>
+              )
 }
 
 

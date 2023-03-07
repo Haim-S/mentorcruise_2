@@ -11,6 +11,7 @@ import {
   Button,
   Tooltip,
   MenuItem} from "@mui/material";
+  import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import {NavAppBar} from "./NavbarStyle"
 import {mainRoutes}  from "../../../pages/import";
@@ -71,22 +72,25 @@ const Navbar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {mainRoutes.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+              {mainRoutes.map((page, index) => (
+                <Link key={index} to={page.path}>
+                <MenuItem onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page.linkLabel}</Typography>
                 </MenuItem>
+                </Link>
               ))}
             </Menu>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {mainRoutes.map((page) => (
+            {mainRoutes.map((page, index) => (
+              <Link key={index} to={page.path}>
               <Button
-              key={page}
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page.linkLabel}
               </Button>
+              </Link>
             ))}
           
           </Box>

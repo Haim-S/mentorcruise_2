@@ -37,7 +37,10 @@ code {
   --MentorsCard-border:#cfcfcf;
   --MentorsCard-title:#172E59;
 }
-
+a:link {
+  text-decoration: none;
+  
+}
 
 .flex_center{
   display: flex;

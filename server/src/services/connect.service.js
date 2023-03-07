@@ -30,7 +30,7 @@ exports.ConnectionState = async (userIdRequester, connectCreateOptions, ) => {
             console.log(updatedConnection);
             information.push({statusCode : 200, data : updatedConnection});
             return information;
-            break;
+            // break;
         case "APPROVED":
             await Connect.findByIdAndDelete(isConnectionExist._id);
             information.push({statusCode : 200, data : "Connection deleted"});

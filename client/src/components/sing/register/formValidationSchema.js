@@ -8,7 +8,7 @@ const schema = Joi.object({
         "any.required": `"First Name" is required `,
         "any.min": `"First Name" must be more then {#limit}`,
     }),
-    lastName: Joi.string().required().messages({
+    LastName: Joi.string().required().messages({
         "string.base": `"Last Name" should be a type of 'text'`,
         "string.empty": `"Last Name" cannot be an empty`,
         "any.required": `"Last Name" is required `,
@@ -19,7 +19,7 @@ const schema = Joi.object({
         "any.required": `"email" is a required field`,
         "string.pattern.base": `Email must be a valid field`,
       }),
-      password: Joi.string()
+      passWord: Joi.string()
         .pattern(RegExp(passwordRegex))
         .min(6)
         .max(20)
@@ -32,11 +32,11 @@ const schema = Joi.object({
           "any.max": `"password" must be more then {#limit}`,
           "string.pattern.base": `password must have 6-20 characaters and must contain at least 1 upper case, 1 lowercase and 1 numeric, between 6 and 20 characters`,
         }),
-      passwordConfirmation: Joi.string()
+        passWordConfirm: Joi.string()
         .min(6)
         .max(20)
         .required()
-        .equal(Joi.ref("password"))
+        .equal(Joi.ref("passWord"))
         .regex(RegExp(passwordRegex))
         .messages({
           "string.base": `"password" should be a type of 'text'`,

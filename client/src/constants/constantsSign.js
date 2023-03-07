@@ -1,23 +1,23 @@
 
 
 export const LOGIN_TEXTFIELD = [
-    {label: "Email", fiald: "Email", type: "text"},
-    {label: "Password", fiald: "Password", type: undefined},
+    {label: "Email", field: "Email", type: "text"},
+    {label: "Password", field: "Password", type: undefined},
 ];
 
 export const REGISTER_TEXTFIELD = [
-    {label: "Email", fiald: "email",type: "text"},
-    {label: "Password", fiald: "passWord" ,type: undefined},
-    {label: "Confirm Password", fiald: "passWordConfirm",type: undefined},
-    {label: "First Name", fiald: "firstName",type: "text"},
-    {label: "Last Name", fiald: "LastName"  ,type: "text"},
+    {label: "Email", field: "email",type: "text"},
+    {label: "Password", field: "passWord" ,type: undefined},
+    {label: "Confirm Password", field: "passWordConfirm",type: undefined},
+    {label: "First Name", field: "firstName",type: "text"},
+    {label: "Last Name", field: "LastName"  ,type: "text"},
 ];
 
 
 export const REGISTER_TEXTFIELD_SECOND = [
-    {label: "Image", fiald: "Image",type: "text"},
-    {label: "About you", fiald: "About"  ,type: "text"},
-    {label: "Work Experience", fiald: "Experience"  ,type: "text"},
+    {label: "Image", field: "Image",type: "text"},
+    {label: "About you", field: "About"  ,type: "text"},
+    {label: "Work Experience", field: "Experience"  ,type: "text"},
 ];
 
 
@@ -41,4 +41,5 @@ export const EXPERTISE = {
     FRONTEND_DEVELOPER: "FRONTEND_DEVELOPER",
     UX_DESIGNER: "UX_DESIGNER",
   };
+
 

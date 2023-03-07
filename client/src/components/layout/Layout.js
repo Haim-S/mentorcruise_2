@@ -1,4 +1,4 @@
-import React from 'react'
+import React , { Suspense } from 'react'
 import Navbar from "./navbar/Navbar";
 import Header from "./header/Header";
 import Footer from "./footer/Footer";
@@ -8,6 +8,7 @@ import "./layout.css";
 
 const Layout = () => {
 
+
   let location = useLocation();
 
   return (
@@ -15,9 +16,11 @@ const Layout = () => {
     {location.pathname == "/login" ?  "" : <Navbar/>}
     {location.pathname == "/login" ? "" :  <Header/>}
     {location.pathname == "/login" ? <Outlet/> :
+    <Suspense fallback={<h1>loading.....</h1>}> 
     <main>
       <Outlet/>
     </main>
+    </Suspense>
     }
     {location.pathname == "/login" ? "" :  <Footer/>}
     </>

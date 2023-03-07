@@ -5,7 +5,7 @@ import {useForm} from "react-hook-form";
 import { SignTextField } from "../../common/customHookForm";
 import {LOGIN_TEXTFIELD} from "../../../constants/constantsSign"; 
 import {SignButton} from "../../common/Buttons";
-import {Box, Typography, CircularProgress} from "@mui/material";
+import {Box, Typography, CircularProgress, Alert} from "@mui/material";
 import GoogleIcon from '@mui/icons-material/Google';
 import {loginByEmailAndPassword, clearErrorMessage} from "../../../store/slices/authSlice"
 
@@ -47,6 +47,11 @@ useEffect(() => {
   return (
     <Box sx={{marginTop: "160px"}}>
       {isLoading && <CircularProgress />}
+      {error && (
+            <Alert variant="filled" severity="error">
+              {error}
+            </Alert>
+          )}
     <form style={{marginTop: "10%"}} onSubmit={handleSubmit(onLoginSubmit)}>
      <div style={{display: "flex", flexDirection: "column", margin: "0 20%" }}>
     <Typography variant="h3"
@@ -59,7 +64,7 @@ useEffect(() => {
      >Login</Typography>
      
      {LOGIN_TEXTFIELD.map((val, index)=> { return (
-      <SignTextField key={index} label={val.label} fialdName={val.fiald} register={register} errors={errors} type={val.type}/>
+      <SignTextField key={index} label={val.label} fieldName={val.field} register={register} errors={errors} type={val.type}/>
      )})}
      <SignButton type='submit'>Login</SignButton>
      <SignButton><GoogleIcon sx={{paddingRight: "20px"}}/>Sign in with Google</SignButton>

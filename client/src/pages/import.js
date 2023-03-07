@@ -7,6 +7,8 @@ import React from "react";
 const ChatPage = React.lazy(() => import("./ChatPage"));
 const HomePage = React.lazy(()=> import("./HomePage"));
 const LoginPage = React.lazy(()=> import("./LoginPage"));
+const ProfilePage = React.lazy(()=> import("./ProfilePage"));
+const PrivacyPolicyPage = React.lazy(()=> import("./PrivacyPolicyPage"));
 
 const mainRoutes = [
     {
@@ -33,7 +35,7 @@ const mainRoutes = [
 ];
 
 const footerRoutes = [
-    { linkLabel: "Privacy Policy", path: "/privacyPolicy" },
+    { linkLabel: "Privacy Policy", path: "/privacyPolicy", component: PrivacyPolicyPage, isProtected: true, },
     { linkLabel: "Contact", path: "/contact" },
     { linkLabel: "Copy Rights", path: "/copyRights" }
 ];

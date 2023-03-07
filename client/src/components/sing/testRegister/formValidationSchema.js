@@ -1,5 +1,5 @@
 import Joi from "joi";
-import { passwordRegex, emailRegex } from "../../constants/constantsRegex";
+import { passwordRegex, emailRegex } from "../../../constants/constantsRegex";
 const schema = Joi.object({
   firstName: Joi.string().required().min(2).messages({
     "string.base": `"First Name" should be a type of 'text'`,
