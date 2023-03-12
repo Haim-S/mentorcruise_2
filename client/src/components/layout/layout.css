@@ -38,6 +38,8 @@ main{
     min-height: 100vh;
     background-color: var(--main-bgc-color);
     padding-bottom: 50px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
     
     /* background-image: url('https://img.freepik.com/free-vector/modern-banner-with-abstract-low-poly-design_1048-14340.jpg?w=1060&t=st=1672155550~exp=1672156150~hmac=bb49e33e6957510dcf22721dab46c16a4b3cefcc1eb0f7df929e82b4ea602e33');
     background-repeat: no-repeat;

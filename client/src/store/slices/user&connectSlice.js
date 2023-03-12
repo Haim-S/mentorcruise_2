@@ -1,5 +1,6 @@
 import {createSlice ,createAsyncThunk} from "@reduxjs/toolkit";
 import userService from "../../service/user.service";
+import connectionService from "../../service/connection.service";
 
 export const AllUser = createAsyncThunk(
     "user/allByRole", async () => {
@@ -31,14 +32,33 @@ export const updateUser = createAsyncThunk(
 
 
 
+export const sendConnectionRequest = createAsyncThunk(
+    "connect/request", async (user)=> {
+        const response = await connectionService.sendConnectionRequestById(user._id);
+        return {response, user};
+    }
+);
+
+
+export const AllConversations = createAsyncThunk(
+    "connect/myConversations", async ()=> {
+        const response = await connectionService.getAllConversations();
+        return response;
+    }
+);
+
+
+
+
 const initialState = {
     isLoading: false,
     error: "",
     users: [],
+    UserIdInformation : [],
 };
 
 const userSlice = createSlice({
-    name: "user",
+    name: "userANDconnect",
     initialState,
     reducers: {
 
@@ -69,7 +89,24 @@ const userSlice = createSlice({
         [userById.fulfilled]: (state, {payload})=> {
             state.isLoading = false;
             state.error = "";
-            state.users = payload;
+            state.UserIdInformation = payload;
+        },
+        [sendConnectionRequest.pending]: (state, action)=> {
+            state.isLoading = false;
+        },
+        [sendConnectionRequest.rejected]: (state, {payload})=> {
+            state.isLoading = false;
+            state.status = "error";
+            state.error = payload;
+        },
+        [sendConnectionRequest.fulfilled]: (state, {payload})=> {
+            state.isLoading = false;
+            // state.status = "idle";
+            state.connect = payload.response;
+            state.users = state.users.map((user)=> user._id === payload.user._id ?
+             {...user, connect: payload.response}: user);
+            console.log(state.connect);
+
         },
     }
 });

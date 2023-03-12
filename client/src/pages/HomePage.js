@@ -3,20 +3,20 @@ import { Grid, Box, Container } from "@mui/material";
 import { useSelector, useDispatch} from "react-redux";
 import SkeletonLoader from "../components/common/skeleton/SkeletonLoader";
 import ListCards from '../components/cards/listCards/ListCards';
-// import ListCards from '../components/cards/listCards/test/ListCards';
-import {AllUser} from "../store/slices/userSlice";
+import {AllUser} from "../store/slices/user&connectSlice";
 
 
 const HomePage = () => {
 
   const dispatch = useDispatch();
-  const {isLoading} = useSelector((state)=> state.user);
-
-
+  const {isLoading, users} = useSelector((state)=> state.userANDconnect);
+ 
+  
+// console.log(users);
   useEffect(()=>{
 
     dispatch(AllUser());
-    
+
      },[isLoading]);
 
   return (
@@ -25,7 +25,7 @@ const HomePage = () => {
         <p>wher is the place for the posts</p>
       </Box>
     <Box component={"section"} sx={{my: 10}}>
-      <ListCards/>
+      <ListCards />
     </Box>
       </Container>
   )

@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const SALT_ROUNDS = 10;
 const {USER_ROLE, EXPERTISE} = require("../constants/user.constants");
 const {emailRegex} = require("../constants/regex.constants");
+const PicRandomProfiel = require("../pic/picRandom_profiel");
 
 
 const userSchema = new Schema({
@@ -49,7 +50,7 @@ const userSchema = new Schema({
       },
       phoneNumber: String,
       about: String,
-      imgSRC: String,
+      imgSRC:{type: String, default: PicRandomProfiel},
       jwt_ac_token: {type: String},
       jwt_rf_token: {type: String},
 });

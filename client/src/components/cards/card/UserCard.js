@@ -12,28 +12,21 @@ import {
     Typography,
 } from "@mui/material";
 import { useSelector, useDispatch } from 'react-redux';
-import {sendConnectionRequest} from "../../../store/slices/connectSlice";
-
+import {sendConnectionRequest} from "../../../store/slices/user&connectSlice";
 import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
+// import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
-// import { SignButton } from "../common/Buttons";
 import classess from "./reviewCard.module.css";
 import Tooltip from "@mui/material/Tooltip";
 import SendIcon from "@mui/icons-material/Send";
 import { Link } from "react-router-dom";
 import ErrorMessagePop from "../../common/ErrorMessagePop";
 import ConnectStatusChip from "./ConnectStatusChip";
-import Button from "@mui/material/Button";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
 import { getConnectionStatusColor, getUserStatusConnection } from "../../../utils/connection.util";
 import CardMenu from "./CardMenu";
-// import { useSelector } from "react-redux";
-// import { sentConnectionRequestById } from "../../../service/connection.service";
+
 
 
 const ERROR_MESSAGE_AUTO_HIDE_TIME = 3000;
@@ -55,7 +48,7 @@ const UserCard = ({user}) => {
 
 
   const dispatch = useDispatch();
-  const { connect,  error} = useSelector((state) => state.connect)
+  const { error} = useSelector((state) => state.userANDconnect)
     const { role } = useSelector((store) => store.auth.user);
     const isAdmin = role === "ADMIN";
   
@@ -69,7 +62,7 @@ const UserCard = ({user}) => {
     // const [error, setError] = React.useState("");
   
     const handleConnectClick = (user) => {
-    dispatch(sendConnectionRequest(user._id));
+    dispatch(sendConnectionRequest(user));
     
     //       // setError(error.message);
     //       setTimeout(() => {
@@ -84,7 +77,7 @@ const UserCard = ({user}) => {
   
 
   return (
-    <Card sx={{ maxWidth: 230 }} className={classess.card_container}>
+    <Card sx={{ maxWidth: 200, minHeight: 200 }} className={classess.card_container}>
       <ErrorMessagePop
         isOpen={Boolean(error)}
         errorMessage={error}
@@ -96,7 +89,7 @@ const UserCard = ({user}) => {
         image="https://media.istockphoto.com/id/1390650720/photo/digital-network-connection-abstract-connection-of-dots-and-lines-technology-background-plexus.jpg?b=1&s=170667a&w=0&k=20&c=SUkUz3EzbbcC25vGSHdV_9MxR0Mun8giVcuHoyOKwDo="
         title="green iguana"
       >
-        <ConnectStatusChip sx={{ m: 10 }} connect={connect} />
+        <ConnectStatusChip sx={{ m: 10 }} user={user} />
       </CardMedia>
       <CardHeader
         avatar={
@@ -110,33 +103,30 @@ const UserCard = ({user}) => {
         title={`${user.firstName}  ${user.lastName}`}
         subheader={user.email}
       />
-      <CardContent sx={{ display: "flex", flexDirection: "column"}}>
+      <CardContent sx={{ display: "flex", flexDirection: "column", paddingTop: "1px", paddingBottom: "3px"}}>
         <Typography variant="body2" color="text.secondary">
           Role: {user.role}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        {/* <Typography variant="body2" color="text.secondary">
           phoneNumber: {user.phoneNumber || "048745978"}
-        </Typography>
+        </Typography> */}
         <Typography variant="body2" color="text.secondary">
           Mentoring: {user.mentoring || "mentoring"}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           Expertise: {user.expertise}
         </Typography>
-        {/* <br />
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the
-          mussels, if you like. */}
+       
       </CardContent>
 
-      <CardActions disableSpacing>
-        <Tooltip title={connect ? "Cancel Request" : "Request"}>
+      <CardActions disableSpacing sx={{paddingTop: "0"}}>
+        <Tooltip title={user.connect ? "Cancel Request" : "Request"}>
           <IconButton
             aria-label="Request"
             color={color}
             onClick={()=> handleConnectClick(user)}
           >
-            {/* <PrimaryButton>Request</PrimaryButton> */}
+           
             <GroupAddIcon />
           </IconButton>
         </Tooltip>

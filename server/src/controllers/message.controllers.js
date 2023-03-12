@@ -3,7 +3,7 @@ const Message = require("../models/message.model");
 
 
 exports.CreateOneMessage = async (req, res, next) => {
-    
+    // need to make validation if is approve is can send message, and if is pandding, cnot send message.
         const newMsg = await Message.create(req.body);
         res.status(201).send(newMsg);
 

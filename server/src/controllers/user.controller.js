@@ -31,4 +31,12 @@ for (let i = 0; i < users.length; i++) {
 
 res.status(200).send(users);
 
-}
+};
+
+
+exports.getOneUserById = async (req, res, next) => {
+    const { userId } = req.params;
+    const user = await User.findById(userId);
+    if (!user) return next(new NotFoundError());
+    res.send(user);
+  };

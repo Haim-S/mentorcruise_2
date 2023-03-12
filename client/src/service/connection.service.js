@@ -18,7 +18,7 @@ const sendConnectionRequestById = async (id) => {
   }
 };
 
-const getAllConversations = async () => {
+export const getAllConversations = async () => {
   try {
     const response = await api.get("/all");
     return response.data;
@@ -36,5 +36,5 @@ const getAllConversations = async () => {
 //   }
 // };
 
-const connectionService = {sendConnectionRequestById, getAllConversations};
+const connectionService = {sendConnectionRequestById};
 export default connectionService;

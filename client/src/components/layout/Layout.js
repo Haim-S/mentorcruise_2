@@ -14,7 +14,7 @@ const Layout = () => {
   return (
     <>
     {location.pathname == "/login" ?  "" : <Navbar/>}
-    {location.pathname == "/login" ? "" :  <Header/>}
+    {location.pathname == "/login" || "/chat" ? "" :  <Header/>}
     {location.pathname == "/login" ? <Outlet/> :
     <Suspense fallback={<h1>loading.....</h1>}> 
     <main>

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {useSelector} from "react-redux";
 import {
   Box,
   Toolbar,
@@ -21,6 +21,8 @@ import CardMedia from '@mui/material/CardMedia';
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Navbar = () => {
+
+  const { isAuth } = useSelector((store) => store.auth);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -82,7 +84,7 @@ const Navbar = () => {
             </Menu>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {mainRoutes.map((page, index) => (
+            {isAuth && mainRoutes.map((page, index) => page.isNavbarLink && (
               <Link key={index} to={page.path}>
               <Button
               onClick={handleCloseNavMenu}

@@ -27,11 +27,18 @@ const mainRoutes = [
     },
     {
         linkLabel: "Chat",
-        path: "/chat",
+        path: "/chat/",
         component: ChatPage,
         isProtected: true,
         isNavbarLink: true,
     },
+    {
+        linkLabel: "Chat User ID",
+        path: "/chat/:userId",
+        component: ChatPage,
+        isProtected: true,
+        isNavbarLink: false,
+      },
 ];
 
 const footerRoutes = [

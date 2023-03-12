@@ -20,6 +20,6 @@ export const getConnectionStatusColor = (status) => {
  * @param {Object} user
  * return connection status
  */ 
-export const getUserStatusConnection = (connect) => {
-    return connect ? connect.status : "Request";
+export const getUserStatusConnection = (user) => {
+    return user.connect ? user.connect.status : "Request";
 };

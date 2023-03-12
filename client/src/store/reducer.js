@@ -1,10 +1,10 @@
 import {combineReducers} from "@reduxjs/toolkit";
 import authReducer from "./slices/authSlice";
-import userReducer from "./slices/userSlice";
-import connectReducer from "./slices/connectSlice";
+import messageReducer from "./slices/messageSlice";
+import userANDconnectReducer from "./slices/user&connectSlice";
 
 export const reducer = combineReducers({
     auth: authReducer,
-    user: userReducer,
-    connect: connectReducer,
+    message: messageReducer,
+    userANDconnect: userANDconnectReducer,
 });

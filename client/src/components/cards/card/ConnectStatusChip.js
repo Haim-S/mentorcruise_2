@@ -1,9 +1,9 @@
 import Chip from "@mui/material/Chip";
 import { getConnectionStatusColor } from "../../../utils/connection.util";
 
-function ConnectStatusChip({ connect }) {
-  // console.log(connect);
-  const status = connect && connect.status;
+function ConnectStatusChip({ user }) {
+  // console.log(user);
+  const status = user.connect && user.connect.status;
   const color = getConnectionStatusColor(status);
   
 

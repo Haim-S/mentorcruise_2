@@ -10,6 +10,12 @@ body {
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  z-index: 100;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
  
 }
 
@@ -36,6 +42,7 @@ code {
   --MentorsCard-H5-color: #00a9a6;
   --MentorsCard-border:#cfcfcf;
   --MentorsCard-title:#172E59;
+
 }
 a:link {
   text-decoration: none;

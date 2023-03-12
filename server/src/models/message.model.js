@@ -6,7 +6,7 @@ const messageSchema = new Schema({
     to: {type: Schema.Types.ObjectId, ref: "User", require: true},
     message: {type: String, required: true},
     data: {type: Date, default: Date.now()},
-    
+    noReadMessage: {type: Boolean, default: false},
 });
 
 
